@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class PalomaAccountTest {
 
     @Test
-    @DisplayName("test_TheFirstTest")
+    @DisplayName("test_IfTheAccountHasAUniqueAccountNumberAndHasBalance")
     void test_IfTheAccountHasAUniqueAccountNumberAndHasBalance(){
 
         //GIVEN:inicializo un nuevo objeto palomaAccount con dos atributos
@@ -21,9 +21,11 @@ public class PalomaAccountTest {
         assertEquals("12345", accountId, "El número de cuenta es '12345'");
         assertEquals(1000.0, balance, "El saldo es 1000.0");
 
-
-
     }
+
+    @Test
+    @DisplayName("")
+
 
 
 }
