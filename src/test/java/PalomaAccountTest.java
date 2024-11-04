@@ -24,8 +24,23 @@ public class PalomaAccountTest {
     }
 
     @Test
-    @DisplayName("")
+    @DisplayName("test_IfUserCanAddPositiveQuantityInTheAccount")
+    void test_IfUserCanAddPositiveAmountInAccount(){
 
+        //GIVEN: inicializo un nuevo objeto palomaAccount con sus parametros
+        PalomaAccount palomaAccount = new PalomaAccount("12345", 1000.0);
+
+
+        //WHEN
+
+
+
+        //THEN
+
+
+
+
+    }
 
 
 }

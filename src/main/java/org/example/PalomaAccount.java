@@ -17,4 +17,12 @@ public class PalomaAccount {
     public Double getBalance() {
         return balance;
     }
+
+
+    // Creo un método para addQuantity
+    public Double addQuantity(){
+
+
+        return null;
+    }
 }
