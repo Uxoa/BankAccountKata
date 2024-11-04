@@ -27,4 +27,17 @@ public class PalomaAccount {
         balance += quantity;
         return balance;
     }
+
+    // Creo un método para withrowQuantity
+    public Double withdrawQuantity(Double quantity) {
+        if (quantity <= 0) {
+            throw new IllegalArgumentException("La cantidad debe ser positiva");
+        }
+        if (quantity > balance) {
+            throw new IllegalArgumentException("Fondos insuficientes para la retirada");
+        }
+        balance -= quantity;
+        return balance;
+    }
+
 }

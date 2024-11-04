@@ -2,7 +2,7 @@ import org.example.PalomaAccount;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PalomaAccountTest {
 
@@ -36,6 +36,68 @@ public class PalomaAccountTest {
         // THEN: verifico que el saldo actualizado sea correcto
         assertEquals(1500.0, updatedBalance, "El saldo debería ser 1500.0 después del depósito de 500");
     }
+
+    @Test
+    @DisplayName("test_IfUserCanWithdrawPositiveQuantityFromAccount")
+    void test_IfUserCanWithdrawPositiveQuantityFromAccount(){
+        // GIVEN: inicializo una cuenta con saldo inicial
+        PalomaAccount palomaAccount = new PalomaAccount("12345", 1000.0);
+
+        // WHEN: retiro 300 del saldo
+        Double updatedBalance = palomaAccount.withdrawQuantity(300.0);
+
+        // THEN: verifico que el saldo se haya actualizado correctamente
+        assertEquals(700.0, updatedBalance, "El saldo debería ser 700.0 después de retirar 300");
+    }
+
+    @Test
+    @DisplayName("test_IfWithdrawalFailsWhenInsufficientFunds")
+    void test_IfWithdrawalFailsWhenInsufficientFunds(){
+        // GIVEN: inicializo una cuenta con saldo inicial
+        PalomaAccount palomaAccount = new PalomaAccount("12345", 1000.0);
+
+        // WHEN y THEN: intento retirar 1500 y verifico la excepción
+        try {
+            palomaAccount.withdrawQuantity(1500.0);
+        } catch (IllegalArgumentException e) {
+            assertEquals("Fondos insuficientes para la retirada", e.getMessage());
+            return;
+        }
+        fail("Se esperaba una excepción por fondos insuficientes");
+    }
+
+    @Test
+    @DisplayName("test_DepositFailsWithNegativeAmount")
+    void test_DepositFailsWithNegativeAmount(){
+        // GIVEN: inicializo una cuenta con saldo inicial
+        PalomaAccount palomaAccount = new PalomaAccount("12345", 1000.0);
+
+        // WHEN y THEN: intento depositar una cantidad negativa y verifico la excepción
+        try {
+            palomaAccount.addQuantity(-500.0);
+        } catch (IllegalArgumentException e) {
+            assertEquals("La cantidad debe ser positiva", e.getMessage());
+            return;
+        }
+        fail("Se esperaba una excepción por cantidad negativa en el depósito");
+    }
+
+    @Test
+    @DisplayName("test_WithdrawalFailsWithNegativeAmount")
+    void test_WithdrawalFailsWithNegativeAmount(){
+        // GIVEN: inicializo una cuenta con saldo inicial
+        PalomaAccount palomaAccount = new PalomaAccount("12345", 1000.0);
+
+        // WHEN y THEN: intento retirar una cantidad negativa y verifico la excepción
+        try {
+            palomaAccount.withdrawQuantity(-300.0);
+        } catch (IllegalArgumentException e) {
+            assertEquals("La cantidad debe ser positiva", e.getMessage());
+            return;
+        }
+        fail("Se esperaba una excepción por cantidad negativa en el retiro");
+    }
+
 
 
 }
