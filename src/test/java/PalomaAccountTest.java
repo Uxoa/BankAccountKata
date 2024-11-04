@@ -10,13 +10,15 @@ public class PalomaAccountTest {
     @DisplayName("test_TheFirstTest")
     void test_IfTheAccountHasAUniqueAccountNumberAndHasBalance(){
         //GIVEN
-        PalomaAccount palomaAccount = new PalomaAccount();
+        PalomaAccount palomaAccount = new PalomaAccount("12345", 1000.0);
 
         //WHEN
-        String result =
+        String accountId = palomaAccount.getAccountId();
+        Double balance = palomaAccount.getBalance();
 
         //THEN
-        assertEquals(result);
+
+
     }
 
 
