@@ -20,9 +20,11 @@ public class PalomaAccount {
 
 
     // Creo un método para addQuantity
-    public Double addQuantity(){
-
-
-        return null;
+    public Double addQuantity(double quantity){
+        if (quantity <= 0) {
+            throw new IllegalArgumentException("La cantidad debe ser positiva");
+        }
+        balance += quantity;
+        return balance;
     }
 }

@@ -30,16 +30,11 @@ public class PalomaAccountTest {
         //GIVEN: inicializo un nuevo objeto palomaAccount con sus parametros
         PalomaAccount palomaAccount = new PalomaAccount("12345", 1000.0);
 
+        // WHEN: agrego 500 al saldo
+        Double updatedBalance = palomaAccount.addQuantity(500.0);
 
-        //WHEN
-
-
-
-        //THEN
-
-
-
-
+        // THEN: verifico que el saldo actualizado sea correcto
+        assertEquals(1500.0, updatedBalance, "El saldo debería ser 1500.0 después del depósito de 500");
     }
 
 
