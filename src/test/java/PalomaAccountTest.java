@@ -6,6 +6,15 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class PalomaAccountTest {
 
+    void TestCreateAccountWithoutInitialAmount() {
+        // Arrange --> No previous scenario
+        // Act
+        PalomaAccount account = new PalomaAccount();
+        // Assert
+        double balance = account.getBalance();
+        assertEquals(0, balance);
+    }
+
     @Test
     @DisplayName("test_IfTheAccountHasAUniqueAccountNumberAndHasBalance")
     void test_IfTheAccountHasAUniqueAccountNumberAndHasBalance(){

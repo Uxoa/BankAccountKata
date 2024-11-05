@@ -10,6 +10,10 @@ public class PalomaAccount {
         this.balance = balance;
     }
 
+    public PalomaAccount() {
+
+    }
+
     public String getAccountId() {
         return accountId;
     }
